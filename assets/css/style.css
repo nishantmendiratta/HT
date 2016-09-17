@@ -1,0 +1,15 @@
+body{
+    margin: 0 auto;
+}
+
+.panel {
+    margin-top: 30px;
+}
+
+#problem_2_info, #problem_1_info {
+    display: none;
+}
+
+#problem_2_response, #problem_1_response {
+    visibility: hidden;
+}

@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Medical Records</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          type="text/css"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Problem Statement 1 : </h3>
+            </div>
+            <div class="col-md-12 alert default">
+
+                <p>You are querying a 3rd party medical record system, they provide you two functions:</p>
+                <ul>
+                    <li>1. contain( SSN, index1, index2), it will return true/ false for whether or not it has the
+                        medical record of person with that SSN which sits in between the two index.
+                    </li>
+                    <li>2. get( index ), this will return the medical record at that index.</li>
+                </ul>
+                <p>Given a SSN, how do you query the system efficiently to get the medical record you need?</p>
+                <p>
+                    The system is a collection of medical records that you can only access it through index, but the
+                    problem is that the only information you have from the patient is ssn. So you have to find out what
+                    is the index of the medical record of person with that SSN. how the 3rd party system implement the
+                    contain function is not your concern, it maybe fast or slow, regardless, you need to minimize the
+                    times you call this function.
+                </p>
+
+            </div>
+            <hr/>
+            <div class="panel-body">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <form class="input-group"
+                          onsubmit="UIService.find(event, parseInt(document.getElementsByName('ssn')[0].value))">
+                        <input type="text" class="form-control" name="ssn" placeholder="Please enter your SSN"
+                               value="111111111">
+                        <span class="input-group-btn">
+                            <input type="submit" class="btn btn-primary"
+                                   value="Get Record"></span>
+                    </form>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="alert alert-info" id="problem_1_info">
+                    <strong>Failed!</strong> Indicates a dangerous or potentially negative action.
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+            <table id="problem_1_response" class="table result-table">
+                <thead>
+                <tr>
+                    <th>SSN</th>
+                    <th>NAME</th>
+                    <th>Gender</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="res-ssn">111111111</td>
+                    <td class="res-name">A</td>
+                    <td class="res-gender">male</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Problem Statement : 2</h3>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-12">
+                    <p>
+                        Let's say a part of the system is accidentally ruined. all the records after index N is not
+                        accessible, and whoever refer to any index after N will not return until the system times out.
+                        to compensate the inconvenience, the system provider give you another authorization key. so in
+                        case you accidentally access some index after index N, you can still have one more shot of
+                        finding your medical record. so how would you find the medical record of SSN efficiently now?
+                        You don't know what N is.
+                    </p>
+                </div>
+                <div class="col-md-12">
+                    <br/>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <form class="input-group"
+                              onsubmit="UIService.find(event, parseInt(document.getElementsByName('ssn')[1].value), 'corrupt')">
+                            <input type="text" class="form-control" name="ssn" placeholder="Please enter your SSN"
+                                   value="111111111">
+                        <span class="input-group-btn"><input type="submit" class="btn btn-primary"
+                                                             value="Get Record"></span>
+                        </form>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <br/>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="alert alert-info" id="problem_2_info">
+                    <strong>Failed!</strong> Indicates a dangerous or potentially negative action.
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+            <table class="table result-table" id="problem_2_response">
+                <thead>
+                <tr>
+                    <th>SSN</th>
+                    <th>NAME</th>
+                    <th>Medical Condition</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="res-ssn">111111111</td>
+                    <td class="res-name">A</td>
+                    <td class="res-gender">male</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+<script src="assets/js/script.js" asybc></script>
+
+</body>
+</html>
